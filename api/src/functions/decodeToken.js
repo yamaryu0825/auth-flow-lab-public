@@ -16,7 +16,7 @@ app.http('decodeToken', {
     return {
       status: 200,
       headers: { 'Content-Type': 'application/json' },
-      body: decoded
+      body: JSON.stringify(decoded), //明示的に文字列化
     };
   }
 });
