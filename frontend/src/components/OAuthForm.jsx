@@ -1,7 +1,8 @@
 // ✅ OAuthForm.jsx
 // 認可リクエストを現在の画面で遷移し、トークンは callback.html 側で一旦処理・表示する
 
-import React, { useEffect, useState } from 'react';
+// import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import qs from 'qs';
 // import TokenViewer from './TokenViewer';
 
@@ -17,7 +18,8 @@ const OAuthForm = () => {
   const [codeChallengeMethod, setCodeChallengeMethod] = useState('');
   const [loginHint, setLoginHint] = useState('');
   const [domainHint, setDomainHint] = useState('');
-  const [authUrl, setAuthUrl] = useState('');
+  // const [authUrl, setAuthUrl] = useState('');
+  const [authUrl] = useState('');
   // const [decodedToken, setDecodedToken] = useState(null);
 
   // // トークン受信 & decodeToken API 呼び出し
