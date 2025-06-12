@@ -1,13 +1,13 @@
-import './App.css';
+import React from 'react';
+import OAuthForm from './components/OAuthForm';
 
 function App() {
   return (
-    <div>
-      <h1>OAuth / SAML / 証明書 認証ツール</h1>
-      <p>ここに認証フローを検証できるUIを作っていきます。</p>
+    <div className="App">
+      <h1>Auth lab ツール</h1>
+      <OAuthForm />
     </div>
   );
 }
-
 
 export default App;

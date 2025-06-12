@@ -1,0 +1,55 @@
+// 取得したトークンを画面に表示させるだけの機能
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <title>Callback</title>
+</head>
+<body>
+  <h2>認証結果</h2>
+  <pre id="tokenDisplay">トークンを処理中...</pre>
+
+  <script>
+    // URLのフラグメントからアクセストークンなどを取得
+    const hash = window.location.hash.substring(1); // 例: access_token=xxx&id_token=yyy
+    const params = new URLSearchParams(hash);
+
+    const tokenData = {};
+    for (const [key, value] of params.entries()) {
+      tokenData[key] = value;
+    }
+
+    // トークン情報を画面に表示
+    document.getElementById('tokenDisplay').textContent =
+      JSON.stringify(tokenData, null, 2);
+  </script>
+</body>
+</html>
+
+
+
+
+<!-- // ✅ callback.html
+// トークンをフラグメントから取得し、親ウィンドウに postMessage して元のページに戻るだけの HTML
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <title>OAuth Callback</title>
+</head>
+<body>
+  <script>
+    // URL フラグメントからアクセストークンを抽出
+    const params = new URLSearchParams(window.location.hash.slice(1));
+    const token = params.get('access_token');
+    if (token) {
+      // トークンを親ウィンドウに postMessage
+      window.opener = window.opener || window.parent;
+      window.opener.postMessage({ token }, window.location.origin);
+    }
+    // トップページに戻る
+    window.location.replace('/');
+  </script>
+</body>
+</html> -->
